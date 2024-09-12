@@ -1,0 +1,27 @@
+@page
+@model Mongo.API.Consumer.App.Pages.DeleteModel
+@{
+    ViewData["Title"] = "Delete Joke";
+}
+
+<form method="post">
+    <input hidden asp-for="JokeModels.id" />
+    <div class="border p-3 mt-4" style="width: 50%;">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">Delete Joke</h2>
+            <hr>
+        </div>
+        <div class="mb-3">
+            <label asp-for="JokeModels.jokeQuestion" class="h5"></label>
+            <input type="text" asp-for="JokeModels.jokeQuestion" disabled>
+            <span asp-validation-for="JokeModels.jokeQuestion" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="JokeModels.jokeAnswer" class="h5"></label>
+            <input type="text" asp-for="JokeModels.jokeAnswer" disabled>
+            <span asp-validation-for="JokeModels.jokeAnswer" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-danger " style="width:150px;">Delete Joke</button>
+ 		<a asp-page="Index" class="btn btn-secondary" style="width:150px;">Cancel</a>
+    </div>
+</form>

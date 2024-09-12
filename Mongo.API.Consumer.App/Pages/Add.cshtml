@@ -1,0 +1,36 @@
+﻿@page
+@model Mongo.API.Consumer.App.Pages.AddModel
+@{
+	ViewData["Title"] = "Add new Joke";
+}
+
+@* Note: Many of the "class=" instances reference Bootstrap sytles. *@
+
+@* Begin render Add code block *@
+<form method="post">
+    @* 	The FruitModels.id is here so the full data model is represented on the page.
+		The database behind the API will assign the id. *@
+	<input hidden asp-for="JokeModels.id" />
+	<div class="border p-3 mt-4" style="width:50%">
+		<div class="row pb-2">
+			<h2 class="text-primary pl-3">Add Joke</h2>
+			<hr />
+		</div>
+		<div class="mb-3">
+			<label asp-for="JokeModels.jokeQuestion" class="h5"></label><br />
+			@* Empty text box for the name of the fruit to be added. *@
+			<input type="text" asp-for="JokeModels.jokeQuestion" />
+			<span asp-validation-for="JokeModels.jokeQuestion" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="JokeModels.jokeAnswer" class="h5"></label><br />
+			@* Empty text box for the name of the fruit to be added. *@
+			<input type="text" asp-for="JokeModels.jokeAnswer" />
+			<span asp-validation-for="JokeModels.jokeAnswer" class="text-danger"></span>
+		</div>
+		@* Submit the addition or return to the Index page if the Add is cancelled.*@
+		<button type="submit" class="btn btn-primary" style="width:150px;">Create Joke</button>
+		<a asp-page="Index" class="btn btn-secondary" style="width:150px;">Cancel</a>
+	</div>
+</form>
+@* End render Add code block *@
