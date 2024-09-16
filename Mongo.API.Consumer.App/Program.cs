@@ -1,12 +1,11 @@
+using Mongo.API.Consumer.App.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.AddHttpClient("Mongo.API", httpClient =>
-{
-    httpClient.BaseAddress = new Uri("http://localhost:5000/api/Joke/");
-});
+builder.Services.AddApplicationServices();
 
 var app = builder.Build();
 
